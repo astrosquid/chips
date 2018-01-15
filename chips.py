@@ -20,6 +20,16 @@ class LogicChip():
 			x.append(i.output)
 		self.inputs = x
 
+class Not(LogicChip):
+	def __init_(self, inputs):
+		super().__init__(inputs)
+		
+	def do(self):
+		if input[0] == 0:
+			self.output = 1
+		else:
+			self.output = 0
+
 class And(LogicChip):
 	def __init__(self, inputs):
 		super().__init__(inputs)
@@ -68,14 +78,21 @@ class Nand(LogicChip):
 
 	def do(self):
 		if len(set(self.inputs)) == 1:
-			self.output = 0
+			if self.inputs[0] == 1:
+				self.output = 0
+			else:
+				self.output = 1
 		else:
 			self.output = 1
 
 def test_it():
 	vcc = Vcc()
-	ground = Ground()
-	nand = Nand([vcc, ground])
+	gr = Ground()
+	orr = Or([gr, gr])
+	andd = And([vcc, vcc, gr])
+	orr.do()
+	andd.do()
+	nand = Nand([orr, andd])
 	nand.do()
 	print(nand.output)
 
