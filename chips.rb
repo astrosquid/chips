@@ -171,18 +171,18 @@ class FourInputMultiplexer < Logic
     end 
 end 
 
-vcc = Vcc.new 
-gnd = Ground.new 
+# vcc = Vcc.new 
+# gnd = Ground.new 
 
-s0 = Switch.new([vcc])
-s1 = Switch.new([vcc])
-s2 = Switch.new([gnd])
+# s0 = Switch.new([vcc])
+# s1 = Switch.new([vcc])
+# s2 = Switch.new([gnd])
 
-h0 = TwoInputHalfAdder.new(vcc, gnd)
+# h0 = TwoInputHalfAdder.new(vcc, gnd)
 
-tifa = TwoInputFullAdder.new(s0, s1, s2)
+# tifa = TwoInputFullAdder.new(s0, s1, s2)
 
-mux_2 = TwoInputMultiplexer.new(s0, vcc, gnd)
-mux_4 = FourInputMultiplexer.new(s0, s1, gnd, vcc, gnd, vcc)
+# mux_2 = TwoInputMultiplexer.new(s0, vcc, gnd)
+# mux_4 = FourInputMultiplexer.new(s0, s1, gnd, vcc, gnd, vcc)
 
-binding.pry
+# binding.pry
